@@ -34,7 +34,7 @@ public class PasswortValidierungTests {
         String password = "adcd11";
 
         //WHEN
-        String actual = PasswortValiedierung.passwortvalidierungalsZahlenEnthalten(password);
+        String actual = PasswortValiedierung.passwortvalidierung_ZahlenEnthalten(password);
 
         //THEN
         String expected = "TRUE";
@@ -47,7 +47,7 @@ public class PasswortValidierungTests {
         String password = "adcdef";
 
         //WHEN
-        String actual = PasswortValiedierung.passwortvalidierungalsZahlenEnthalten(password);
+        String actual = PasswortValiedierung.passwortvalidierung_ZahlenEnthalten(password);
 
         //THEN
         String expected = "FALSE";
@@ -60,7 +60,7 @@ public class PasswortValidierungTests {
         String password = "adCD11";
 
         //WHEN
-        String actual = PasswortValiedierung.passwortvalidierungalsBuchstabenEnthalten(password);
+        String actual = PasswortValiedierung.passwortvalidierung_BuchstabenEnthalten(password);
 
         //THEN
         String expected = "TRUE";
@@ -73,10 +73,35 @@ public class PasswortValidierungTests {
         String password = "1111";
 
         //WHEN
-        String actual = PasswortValiedierung.passwortvalidierungalsBuchstabenEnthalten(password);
+        String actual = PasswortValiedierung.passwortvalidierung_BuchstabenEnthalten(password);
 
         //THEN
         String expected = "FALSE";
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    void whenPasswordContainsCapitalLetters_thenReturnTrue(){
+        //GIVEN
+        String password = "CD11";
+
+        //WHEN
+        String actual = PasswortValiedierung.passwortvalidierung_großeBuchstabenEnthalten(password);
+
+        //THEN
+        String expected = "TRUE";
+        Assertions.assertEquals(expected,actual);
+    }
+    @Test
+    void whenPasswordContainsLowercaseLetters_thenReturnTrue(){
+        //GIVEN
+        String password = "ss11";
+
+        //WHEN
+        String actual = PasswortValiedierung.passwortvalidierung_kleineBuchstabenEnthalten(password);
+
+        //THEN
+        String expected = "TRUE";
         Assertions.assertEquals(expected,actual);
     }
 }
