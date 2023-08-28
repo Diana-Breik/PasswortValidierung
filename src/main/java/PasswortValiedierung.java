@@ -71,4 +71,17 @@ public class PasswortValiedierung {
           }
         return "FALSE";
     }
+
+    public static boolean passwortvalidierung_IsGood(String password) {
+        String[] schlechtePasswörter={"123456","passwort"};
+        for(String x: schlechtePasswörter){
+            if(x.toLowerCase().equals(password.toLowerCase())){
+                //das Passwort ist schlecht
+                return false;
+            }
+        }
+        //das Passwort ist gut
+        return true;
+
+    }
 }

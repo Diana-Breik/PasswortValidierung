@@ -104,4 +104,18 @@ public class PasswortValidierungTests {
         String expected = "TRUE";
         Assertions.assertEquals(expected,actual);
     }
+
+    @Test
+    void whenPasswordNotGood_thenReturnFalse(){
+        //GIVEN
+        String password = "passwort";
+
+        //WHEN
+        boolean actual = PasswortValiedierung.passwortvalidierung_IsGood(password);
+
+        //THEN
+        boolean expected = false;
+        Assertions.assertEquals(expected,actual);
+
+    }
 }
